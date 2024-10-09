@@ -6,14 +6,14 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:05:17 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/09 10:07:41 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/09 13:04:05 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libpush_swap.h"
 
 //Rules swap sa, sb y ss:
-
+//swap first two elements of a
 void	sa(t_stack *a)
 {
 	t_node	*first;
@@ -27,7 +27,7 @@ void	sa(t_stack *a)
 	second->next = first;
 	a->top = second;
 }
-
+//swap first two elements of b
 void	sb(t_stack *b)
 {
 	t_node	*first;

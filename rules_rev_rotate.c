@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:13:16 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/09 10:45:32 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/09 12:46:48 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 //Rules reverse rotate rra, rrb, rrr:
 //Last element to first position
-
 void	rra(t_stack *a)
 {
 	t_node	*last;

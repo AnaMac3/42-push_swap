@@ -6,14 +6,14 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:15:19 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/09 10:06:43 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/09 13:01:24 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libpush_swap.h"
 
 //Rules push pa, pb:
-
+//top of b stack to top of a
 void	pa(t_stack *a, t_stack *b)
 {
 	t_node	*first_b;
@@ -27,7 +27,7 @@ void	pa(t_stack *a, t_stack *b)
 	a->size ++;
 	b->size --;
 }
-
+//top of a stack to top of b
 void	pb(t_stack *a, t_stack *b)
 {
 	t_node	*first_a;

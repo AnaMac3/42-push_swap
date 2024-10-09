@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:15:51 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/09 09:37:24 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:59:44 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,17 @@ t_node	*create_node(int value);
 void	push(t_stack *stack, int value);
 void	print_stack(t_stack *stack);
 void	free_stack(t_stack *stack);
+
+//MAIN
+//main.c
+int	main(int argc, char **argv);
+
+//MANAGE ARGS
+//args_manager.c
+int	check_valid_nbr(const char *argv);
+long int	ft_atol(const char *nptr);
+int	is_duplicated(t_stack *stack, int nb);
+
+
 
 #endif

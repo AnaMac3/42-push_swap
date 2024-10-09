@@ -4,7 +4,9 @@ CFLAGS=-Wall -Wextra -Werror
 TARGET= push_swap
 
 SRC_FILES= rules_swap.c rules_push.c rules_rotate.c \
-			rules_rev_rotate.c stack_manager.c
+			rules_rev_rotate.c stack_manager.c \
+			args_manager.c \
+			main.c
 
 OBJ_FILES= $(SRC_FILES:.c=.o)
 

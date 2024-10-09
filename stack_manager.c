@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 09:23:52 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/09 10:58:50 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/09 13:00:34 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ aceptar números enteros.
 --> atoi para sacar los valores de la cadena con espacios??*/
 #include "libpush_swap.h"
 
+//Initialize stack
 t_stack *init_stack(void)
 {
     t_stack *stack;
@@ -37,7 +38,7 @@ t_stack *init_stack(void)
     stack->size = 0;
     return (stack);
 }
-
+//Create a node
 t_node  *create_node(int value)
 {
     t_node  *node = malloc(sizeof(t_node));
@@ -45,7 +46,7 @@ t_node  *create_node(int value)
     node->next = NULL;
     return (node);
 }
-
+//Add a node at the top of the stack
 void    push(t_stack *stack, int value)
 {
     t_node  *new_node;
@@ -60,7 +61,7 @@ void    push(t_stack *stack, int value)
     }
     stack->size ++;
 }
-
+//Print the stack
 void    print_stack(t_stack *stack)
 {
     t_node  *current;
@@ -74,7 +75,7 @@ void    print_stack(t_stack *stack)
     }
     ft_printf("\n");
 }
-
+//Free the stack
 void    free_stack(t_stack *stack)
 {
     t_node  *current;
