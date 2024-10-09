@@ -4,7 +4,7 @@ CFLAGS=-Wall -Wextra -Werror
 TARGET= push_swap
 
 SRC_FILES= rules_swap.c rules_push.c rules_rotate.c \
-			rules_rev_rotate.c \
+			rules_rev_rotate.c stack_manager.c
 
 OBJ_FILES= $(SRC_FILES:.c=.o)
 
@@ -23,8 +23,8 @@ $(LIBFT_NAME):
 $(PS_LIB_NAME): $(OBJ_FILES)
 	ar rcs $(PS_LIB_NAME) $(OBJ_FILES)
 
-$(TARGET): $(OBJ_FILES) $(PS_LIB_NAME)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ_FILES) -L. -lpush_swap -L$(LIBFT_DIR) -lft
+$(TARGET): $(OBJ_FILES) $(LIBFT_NAME) $(PS_LIB_NAME)
+	$(CC) $(CFLAGS) -o $(TARGET) -L. -lpush_swap -L$(LIBFT_DIR) -lft
 
 %.o: %.c $(PS_LIB_FILE)
 	$(CC) $(CFLAGS) -c $< -o $@
