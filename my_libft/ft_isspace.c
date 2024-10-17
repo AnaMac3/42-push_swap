@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 17:27:01 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/17 17:30:27 by amacarul         ###   ########.fr       */
+/*   Created: 2024/10/12 09:50:53 by amacarul          #+#    #+#             */
+/*   Updated: 2024/10/17 17:30:37 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_isspace(int c)
 {
-	t_list	*last_node;
-
-	if (lst == NULL && new == NULL)
-		return ;
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	last_node = ft_lstlast(*lst);
-	last_node->next = new;
+	return (c >= 9 && c <= 13);
 }
