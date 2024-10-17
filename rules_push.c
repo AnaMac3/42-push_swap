@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:15:19 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/09 13:01:24 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:49:42 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ void	pa(t_stack *a, t_stack *b)
 	a->top = first_b;
 	a->size ++;
 	b->size --;
+	ft_printf("pa\n");
 }
+
 //top of a stack to top of b
 void	pb(t_stack *a, t_stack *b)
 {
@@ -40,45 +42,5 @@ void	pb(t_stack *a, t_stack *b)
 	b->top = first_a;
 	b->size ++;
 	a->size --;
+	ft_printf("pb\n");
 }
-
-//PRUEBA
-/*
-int main()
-{
-    t_stack *a;
-    t_stack *b;
-    int i;
-
-    a = init_stack();
-    b = init_stack();
-    i = 5;
-    while (i > 0)
-    {
-        push(a, i);
-        i --;
-    }
-    
-    ft_printf("Stack a inicial: \n");
-    print_stack(a);
-    ft_printf("Stack b inicial: \n");
-    print_stack(b);
-    //pb
-    ft_printf("\n\nPush b (pb) (mover de A a B)\n");
-    pb(a, b);
-    ft_printf("Stack a después de pb: \n");
-    print_stack(a);
-    ft_printf("Stack b después de pb: \n");
-    print_stack(b);
-    //pa
-    ft_printf("\n\nPush a (pa) (mover de B a A)\n");
-    pa(a, b);
-    ft_printf("Stack a después de pa: \n");
-    print_stack(a);
-    ft_printf("Stack b después de pa: \n");
-    print_stack(b);
-
-    free_stack(a);
-    free_stack(b);
-    return (0);
-}*/

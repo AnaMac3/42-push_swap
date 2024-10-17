@@ -6,15 +6,17 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:13:16 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/09 12:46:48 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:50:45 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libpush_swap.h"
 
 //Rules reverse rotate rra, rrb, rrr:
+//mode == 0 --> final movement, print it and do it
+//mode == 1 --> calling from doble rotate (rr or rrr), not print it
 //Last element to first position
-void	rra(t_stack *a)
+void	rra(t_stack *a, int mode)
 {
 	t_node	*last;
 	t_node	*second_last;
@@ -31,9 +33,11 @@ void	rra(t_stack *a)
 	second_last->next = NULL;
 	last->next = a->top;
 	a->top = last;
+	if (mode == 0)
+		ft_printf("rra\n");
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_stack *b, int mode)
 {
 	t_node	*last;
 	t_node	*second_last;
@@ -50,61 +54,13 @@ void	rrb(t_stack *b)
 	second_last->next = NULL;
 	last->next = b->top;
 	b->top = last;
+	if (mode == 0)
+		ft_printf("rrb\n");
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
-	rra(a);
-	rrb(b);
+	rra(a, 1);
+	rrb(b, 1);
+	ft_printf("rrr\n");
 }
-
-//PRUEBA
-/*
-int main()
-{
-    t_stack *a;
-    t_stack *b;
-    int i;
-	int	j;
-
-    a = init_stack();
-    b = init_stack();
-    i = 5;
-    while (i > 0)
-    {
-        push(a, i);
-        i --;
-    }
-	j = 10;
-	while (j > 5)
-    {
-        push(b, j);
-        j --;
-    }
-    
-    ft_printf("Stack a inicial: \n");
-    print_stack(a);
-    ft_printf("Stack b inicial: \n");
-    print_stack(b);
-    //rra
-    ft_printf("\n\nReverse rotate a (rra) (el último ahora es el primero)\n");
-    rra(a);
-    ft_printf("Stack a después de rra: \n");
-    print_stack(a);
-	//rrb
-    ft_printf("\n\nReverse rotate b (rrb) (el último ahora es el primero)\n");
-    rrb(b);
-    ft_printf("Stack b después de rrb: \n");
-    print_stack(b);
-    //rrr
-    ft_printf("\n\nReverse rotate a y b a la vez\n");
-    rrr(a, b);
-    ft_printf("Stack a después de rrr: \n");
-    print_stack(a);
-    ft_printf("Stack b después de rrr: \n");
-    print_stack(b);
-
-    free_stack(a);
-    free_stack(b);
-    return (0);
-}*/

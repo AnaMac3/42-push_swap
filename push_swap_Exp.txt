@@ -1,0 +1,782 @@
+PUSH_SWAP
+
+https://www.youtube.com/watch?v=wRvipSG4Mmk&t=0s
+
+tester --> 
+
+Programa en C que calcule y muestre en la salida estándar el programa más pequeño, creado con las instrucciones de lenguaje Push swap, que ordene los números enteros recibidos como argumentos.
+
+Términos importantes: 
+
+--> Algoritmos: conjunto de instrucciones o reglas definidas y no ambiguas, ordenadas y finitas que permite solucionar un problema, realizar un cómputo, procesar datos...
+
+--> Complejidad: la complejidad de un algoritmo es una medida de cuán eficiente es el algoritmo para resolver el problema. Es la medida de cuánto tiempo y espacio (memoria) requiere. ¿Cómo medir la complejidad? Una de las maneras más comunes es contar el número de operaciones básicas que realiza. Esto se conoce como la complejidad temporal del algoritmo. También se puede medir/contar la cantidad de memoria que requiere: complejidad espacial del algoritmo. 
+Las complejidades de tiempo y espacio se pueden expresar utilizando la O grande (Big-O). Esta notación proporciona una forma de comparar la complejidad de diferentes algoritmos. x ej una complejidad temporal de O(n) es más eficiente que una complejidad temporal de O(n²), porque crece a un ritmo más lento a medida que aumenta el tamaño de entrada.
+
+	Fuente: https://europeanvalley.es/noticias/la-complejidad-de-los-algoritmos/#:~:text=La%20complejidad%20de%20un%20algoritmo,el%20contexto%20de%20los%20algoritmos.
+
+--> Algoritmos de ordenamiento: conjunto de instrucciones que toman un arreglo o lista como entrada y organizan los elementos en un orden particular. A menudo permiten reducir la complejidad de un problema.
+A la hora de elegir un algoritmo de ordenación hay que tener en cuenta el tamaño de la coleccion a ordenar, la memoria disponible, si la colección necesita crecer...
+Los algoritmos de ordenación se pueden clasificar según los siguientes parámetros:
+	- Cantidad de intercambios o inversiones requeridas: cantidad de veces que el algoritmo intercambia elementos para ordenar la entrada.
+	- Número de comparaciones: cantidad de veces que el algoritmo compara elementos para ordenar la entrada. (notación Big-O --> buscar infor si se requiere)
+	- Si usan recursividad o no
+	- Si son estables o inestables: los estables mantienen el orden relativo de los elementos con valores iguales o claves. Los inestables, no.
+	- Cantidad de espacio adicional requerido: algunos algoritmos de ordenación pueden ordenar una lita sin crear una lista completamente nueva. Estos se llaman algoritmos de ordenación en el lugar y requieren un O(1) espacio adicional constante para la ordenación. Los algoritmos de ordenación fuera de lugar crean una lista durante la ordenación. 
+
++ INFOR -> https://42-cursus.gitbook.io/guide/rank-02/push_swap
+
+Algunos algoritmos de ordenamiento: 
+	BUBBLE SORT -> Recorremos el stack entero (hasta a->size - 1) mirando si el valor de a->top es mayor que el de a->top->next. Si lo es, los intercambiamos (sa) y mandamos el primer elemento (a->top) al final de la stack (ra).
+Para 500 elementos, me hace 249500 movimientos.
+
+	COCKTAIL SORT -> ordenamiento de burbuja bidireccional. Este creo que no puedo hacerlo porque implica también hacer intercambios desde atrás del stack...
+	
+	INSERTION SORT -> tampoco puedo hacerlo, intercambia cosas por el medio de la stack ...
+	...
+	RADIX SORT -> método de ordenamiento que ordena los elementos de una lista procesando sus dígitos de forma individual. Clasifica los elementos según los valores de los dígitos de menor a mayor, primero en función del dígito menos significativo, luego e función del siguiente dígito más significativo y así sucesivamente.
+	1. Primero se determina la cantidad máxima de digitos presentes en los números del stack. Esto sirve para determinar cuantas pasadas serán necesarias para ordenar la lista.
+	2. Ordenamiento por cada dígito: comenzando por el dígito menos significativo, se realiza un proceso de ordenamiento estable (como counting sort) en función de ese dígito para todos los elementos de la lista.
+	Cuando hablamos del dígito menos significativo nos referimos al que está más a la derecha.
+	3. Repetir el proceso para cada dígito, desde el menos significativo hasta el más significativo. Cada vez que se ordena en función de un dígito, los elementos permanecen en el orden relativo que tenían antes de la clasificación, lo que garantiza un ordenamiento estable.
+	4. Y ya. fin. 
+	
+	
+
+	
+
+
+Reglas:
+- Tenemos 2 stacks, a y b.
+- El stack a contiene una cantidad aleatoria de numeros positivos y/o negativos, nunca duplicados.
+- El stack b está vacío.
+- Objetivo: ordenar los números del stack a en orden ascendente. Operaciones que podemos usar:
+	- sa swap a: intercambia los dos primeros elementos del stack a. 
+	  No hace nada si hay <= 1 elementos.
+	  
+	- sb swap b: intercambia los dos primeros elementos del stack b. 
+	  No hace nada si hay <= 1 elementos.
+	  
+	- ss swap a y swap b a la vez.
+	
+	- pa push a: toma el primer elemento del stack b y lo pone el primero en el stack a. 
+	  No hace nada si b está vacío.
+	  
+	- pb push b: toma el primer elemento del stack a y lo pone el primero en el stack b. 
+	  No hace nada si a está vacío.
+	  
+	- ra rotate a: desplaza hacia arriba todos los elementos del stack a una posición. 
+	  El primer elemento se convierte en el último. 
+	  
+	- rb rotate b: desplaza hacia arriba todos los elementos del stack b una posición. 
+	  El primer elemento se convierte en el último.
+	  
+	- rr ra y rb al mismo tiempo.
+	
+	- rra reverse rotate a: desplaza hacia abajo todos los elementos del stack a una posición. 
+	  El último elemento se convierte en el primero. 
+	  
+	- rrb reverse rotate b: desplaza hacia abajo todos los elementos del stack b una posición. 
+	  El último elemento se convierte en el primero.
+	  
+	- rrr rra y rrb al mismo tiempo. 
+	
+Programa push_swap:
+Archivos a entregr: Makefile, *.h, *.c
+Argumentos: stack a: lista de números enteros
+Funciones autorizadas: read, write, malloc, free, exit, ft_printf y cualquier función equivalente que haya creado. Se permite usar la libft.
+
+Variables globales prohibidas.
+El programa push_swap recibe como argumento el stack a con el formato de una lista de enteros. El primer argumento debe ser el que esté encima del stack (cuidado con el orden).
+El programa debe mostrar la lista de instruciones más corta posible para ordenar el stack a, de menor a mayor, donde el menor se sitúe en la cima del stack.
+Las instruccione deben separarse utilizando '\n' solamente.
+Si no se especifican parámetros, el programa no debe mostrar nada y debe devolver el control al usuario. 
+En caso de error, muestra Error seguido de '\n' en la salida de errores estándar. Algunos posibles errores: argumentos que no son enteros, argumentos superiores a un entero, numeros duplicados...
+
+Cómo funciona el binario para testear el programa -->
+ARG="5 8 3 2 9 80"; ./push_swap $ARG | wc -1
+ARG="5 8 3 2 9 80"; ./push_swap $ARG | ./checker_OS $ARG
+
+Pruebas de rendimiento:
+- Validación mínima (80 puntos): tiene que ordenar 100 números aleatorios en menos de 700 operaciones.
+- Validación máxima: lo anterior + ordenar 500 números aleatorios en no mas de 5500 operaciones.
+
+
+
+Stack --> estructura de datos que sigue el principio de LIFO (Last In, First Out). El uĺtimo elemento agregado es el primero en ser removido. Las pilas tienen acceso restringido a sus elementos, permitiendo solo operaciones en la parte superior de la pila. A diferencia de las listas, en las que los elementos pueden ser accedidos por su índice.
+
+
+COSAS QUE VOY HACIENDO:
+
+#RULES
+
+Sintaxis de las reglas: asignación de punteros de nodos en stacks...
+
+void	push_a (t_stack *a, t_stack *b)
+{
+	t_node	*first_b;
+	
+	if (b->size == 0)
+		return ;
+
+    first_b = b->top; //guardar el puntero al nodo superior de b
+    b->top = b->top->next; //mover el puntero top de b a su siguiente
+    first_b->next = a->top; //ahora, el siguiente nodo de first_b va a ser el anterior top de a
+    a->top = first_b; //actualizamos el puntero top de a para que apunte al nuevo primer nodo
+    a->size ++;
+    b->size --;
+}
+
+Sintaxis complicada:
+b->top = algo : aquí asignamos el puntero top de b a algo, movemos el puntero para que apunte a algo.
+first_b->next = algo : hacemos que el siguiente nodo de first-b ahora apunta a otra cosa
+
+push (rules_push.c):
+
+//Rules push pa, pb:
+//top of b stack to top of a
+void	pa(t_stack *a, t_stack *b)
+{
+	t_node	*first_b;
+
+	if (b->size == 0)
+		return ;
+	first_b = b->top;
+	b->top = b->top->next;
+	first_b->next = a->top;
+	a->top = first_b;
+	a->size ++;
+	b->size --;
+}
+//top of a stack to top of b
+void	pb(t_stack *a, t_stack *b)
+{
+	t_node	*first_a;
+
+	if (a->size == 0)
+		return ;
+	first_a = a->top;
+	a->top = a->top->next;
+	first_a->next = b->top;
+	b->top = first_a;
+	b->size ++;
+	a->size --;
+}
+
+rotate (rules_rotate.c)
+
+//Rules rotate, ra, rb, rr:
+//First element to last position
+void	ra(t_stack *a)
+{
+	t_node	*first;
+	t_node	*last;
+
+	if (a->size < 2)
+		return ;
+	first = a->top;
+	last = a->top;
+	while ((last->next) != NULL)
+		last = last->next;
+	a->top = first->next;
+	last->next = first;
+	first->next = NULL;
+}
+
+void	rb(t_stack *b)
+{
+	t_node	*first;
+	t_node	*last;
+
+	if (b->size < 2)
+		return ;
+	first = b->top;
+	last = b->top;
+	while ((last->next) != NULL)
+		last = last->next;
+	b->top = first->next;
+	last->next = first;
+	first->next = NULL;
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	ra(a);
+	rb(b);
+}
+
+reverse rotate (rules_rev_rotate.c)
+
+//Rules reverse rotate rra, rrb, rrr:
+//Last element to first position
+void	rra(t_stack *a)
+{
+	t_node	*last;
+	t_node	*second_last;
+
+	if (a->size < 2)
+		return ;
+	last = a->top;
+	second_last = NULL;
+	while (last->next != NULL)
+	{
+		second_last = last;
+		last = last->next;
+	}
+	second_last->next = NULL;
+	last->next = a->top;
+	a->top = last;
+}
+
+void	rrb(t_stack *b)
+{
+	t_node	*last;
+	t_node	*second_last;
+
+	if (b->size < 2)
+		return ;
+	last = b->top;
+	second_last = NULL;
+	while (last->next != NULL)
+	{
+		second_last = last;
+		last = last->next;
+	}
+	second_last->next = NULL;
+	last->next = b->top;
+	b->top = last;
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	rra(a);
+	rrb(b);
+}
+
+swap (rules_swap.c):
+
+//Rules swap sa, sb y ss:
+//swap first two elements of a
+void	sa(t_stack *a)
+{
+	t_node	*first;
+	t_node	*second;
+
+	if (a->size < 2)
+		return ;
+	first = a->top;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	a->top = second;
+}
+//swap first two elements of b
+void	sb(t_stack *b)
+{
+	t_node	*first;
+	t_node	*second;
+
+	if (b->size < 2)
+		return ;
+	first = b->top;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	b->top = second;
+}
+
+void	ss(t_stack *a, t_stack *b)
+{
+	sa(a);
+	sb(b);
+}
+
+#GESTIONAR LA STACK
+
+Definición de estructura (libpush_swap.h): 
+
+typedef struct s_node
+{
+	int	value;
+	struct s_node	*next;
+}	t_node;
+
+typedef struct s_stack
+{
+	t_node	*top;
+	int	size;
+}	t_stack;
+
+
+Funciones de gestión de la stack (stack_manager.c)
+
+//Initialize stack
+t_stack *init_stack(void)
+{
+    t_stack *stack;
+
+    stack = malloc(sizeof(t_stack));
+    stack->top = NULL;
+    stack->size = 0;
+    return (stack);
+}
+//Create a node
+t_node  *create_node(int value)
+{
+    t_node  *node = malloc(sizeof(t_node));
+    node->value = value;
+    node->next = NULL;
+    return (node);
+}
+//Add a node at the top of the stack
+void    push(t_stack *stack, int value)
+{
+    t_node  *new_node;
+
+    new_node = create_node(value);
+    if (stack->top == NULL)
+        stack->top = new_node;
+    else
+    {
+        new_node->next = stack->top;
+        stack->top = new_node;
+    }
+    stack->size ++;
+}
+//Print the stack
+void    print_stack(t_stack *stack)
+{
+    t_node  *current;
+
+    current = stack->top;
+    ft_printf("Stack (size = %d): \n", stack->size);
+    while (current != NULL)
+    {
+        ft_printf("%d ", current->value);
+        current = current->next;
+    }
+    ft_printf("\n");
+}
+//Free the stack
+void    free_stack(t_stack *stack)
+{
+    t_node  *current;
+    t_node  *next;
+    
+    current = stack->top;
+    while(current != NULL)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    free(stack);
+}
+
+#RECIBIR ARGUMENTOS Y METERLOS EN LA STACK A
+
+int	main(int argc, char **argv)
+{
+	t_stack *a;
+	t_stack *b;
+	int	i;
+	
+	if (argc < 2)
+	{
+		return (0);
+	}
+	a = init_stack();
+	b = init_stack();
+	i = argc - 1; //Porque el último argc es nulo, para indicar el final de los args
+	while (i >= 1) //para ir de atrás hacia adelante, meter primero el último.
+	{
+		push(a, ft_atoi(argv[i]));
+		i --;
+	}
+	ft_printf("Stack a inicial: \n");
+	print_stack(a);
+
+	//Prueba con pb
+	ft_printf("\nPush b (pb) (mover de A a B)\n");
+	pb(a, b);
+	ft_printf("Stack a después de pb: \n");
+	print_stack(a);
+	ft_printf("Stack b después de pb: \n");
+	print_stack(b);
+	
+	free_stack(a);
+	free_stack(b);
+	return (0);
+}
+
+#GESTIONAR LOS ARGUMENTOS
+/Checking if the arg is a valid number
+int	check_valid_nbr(const char *argv)
+{
+	int		i;
+
+	i = 0;
+	if (argv[i] == '-' || argv[i] == '+')
+		i ++;
+	if(argv[i] == '\0')
+		return (1);
+	while (argv[i] != '\0')
+	{
+		if (!ft_isdigit(argv[i]))
+			return (1);
+		i ++;
+	}
+	return (0);
+}
+//String to number (long int)
+long int	ft_atol(const char *nptr)
+{
+	int	        pos;
+	int	        sign;
+	long int	nb;
+
+	pos = 0;
+	sign = 1;
+	nb = 0;
+	while ((nptr[pos] >= 9 && nptr[pos] <= 13) || nptr[pos] == 32)
+		pos ++;
+	if (nptr[pos] == '+')
+		pos ++;
+	else if (nptr[pos] == '-')
+	{
+		sign = -1;
+		pos ++;
+	}
+	while (nptr[pos] >= '0' && nptr[pos] <= '9')
+	{
+		nb = nb * 10 + (nptr[pos] - '0');
+		pos ++;
+	}
+	return (nb * sign);
+}
+//Check if the number is a valid int
+int	is_duplicated(t_stack *stack, int nb)
+{
+	t_node	*current;
+
+	current = stack->top;
+	while (current)
+	{
+		if (current->value == nb)
+			return (1);
+		current = current->next;
+	}
+	return (0);
+}
+
+#LIBRERÍA Y MAKEFILE -->
+
+Ejemplo de como incorporar la libft a este proyecto -->
+Cómo hacer el makefile general: https://github.com/Laendrun/42-push_swap/blob/main/Makefile
+!!ACTUALIZARME MI LIBFT, AÑADIR PRINTF, GET_NEXT_LINE, ETC.
+
+#ALGORITMO DE ORDENACIÓN -->
+Pasos que vamos a seguir:
+
+1. Ver si el orden de la pila es correcto o si tiene que ser ordenada
+2. Crear un algoritmo pequeño para pilas pequeñas (de 5 elementos y menos).
+	- Condición para 2 números
+	- Condición para 3 números
+	- Condición para 4 números
+	- Condición para 5 números
+3. Crear otro algoritmo para todos los demás.
+
+	RADIX SORT -> método de ordenamiento que ordena los elementos de una lista procesando sus dígitos de forma individual. Clasifica los elementos según los valores de los dígitos de menor a mayor, primero en función del dígito menos significativo, luego e función del siguiente dígito más significativo y así sucesivamente.
+	1. Primero se determina la cantidad máxima de bytes presentes en los números del stack. Esto sirve para determinar cuantas pasadas serán necesarias para ordenar la lista.
+	2. Ordenamiento por cada bite: comenzando por el dígito menos significativo (el último de cada número, las unidades), se realiza un proceso de ordenamiento estable (como counting sort) en función de ese dígito para todos los elementos de la lista.
+	Cuando hablamos del dígito menos significativo nos referimos al que está más a la derecha.
+	Es decir:
+	Se hace una primera pasada por aquellos números que tengan la máxima cantidad de dígitos. Si el dígito menos significativo del número en cuestión es menor que 5, hacemos pb (lo movemos al stack b). Si es mayor que 5, ra (lo movemos al final del stack a.
+	Ejemplo --> stack a: 4 76 213 89 5 109 387
+	Primera vuelta --> stack b: 213 , stack a: 4 76 89 5 387 109
+	3. Repetir el proceso para cada dígito, desde el menos significativo hasta el más significativo. Cada vez que se ordena en función de un dígito, los elementos permanecen en el orden relativo que tenían antes de la clasificación, lo que garantiza un ordenamiento estable.
+	4. Y ya. fin. 
+
+Explicación del algoritmo:
+
+void	radix(t_stack *a, t_stack *b)
+{
+	int	bit_pos; //posición del bit que está siendo procesado en cada iteración
+	int	processed_elem;//controla cuántos elementos (números) han sido procesados en el ciclo actual. Se procesan todos los números del stack en cada pasada
+	int	a_size;//almacena el tamaño de la stack a
+	int	max_bits;//número máximo de bits necesarios para representar los números de la pila.
+
+	bit_pos = 0;//empezamos por el bit menos significativo. La primera vuelta no desplazaremos los bits y cogeremos el último
+	a_size = a->size;
+	max_bits = get_max_bits(a);//número de bits del número más grande de la pila
+	while (bit_pos < max_bits)//el algoritmo seguirá procesando bits desde el menos significativo (bit 0) hasta el más significativo
+	{
+		processed_elem = 0;
+		while(processed_elem < a_size)//todos los elementos serán procesados en cada iteración
+		{
+			if(((a->top->value >> bit_pos) & 1) == 1) //Desplazamos los bits i posiciones a la derecha. Esto mueve el bit que nos interesa al final de la representación binaria. En la primera vuelta estaremos en el último bit. En la segunda, en el anteúltimo, etc. Si el bit menos significativo es == 1.
+			//el bit menos significativo después de haber desplazado los bits i posiciones a la derecha
+				ra(a);
+			else
+				pb(a, b);
+			processed_elem ++;
+		}
+		while (b->size > 0) //volvemos a meter todos los elementos de b en a
+			pa(a, b);
+		bit_pos ++;
+	}
+	
+}
+
+
+	TURK SORT --> https://medium.com/@ayogun/push-swap-c1f5d2d41e97
+	https://github.com/ayogun/push_swap/blob/main/srcs/push_swap/ft_sort_big.c
+
+	stack A		stack B
+	  5
+	  2
+	  7
+	  1
+	  6
+	  3
+	  9
+	  4
+	  8
+	
+	Paso 1. Para determinar la ordenación correcta en el stack B, necesitamos un número máximo en el stack B, así que pasamos los dos primeros números del stack a al stack b.
+	pb
+	pb
+	
+	stack A		stack B
+	  7		  2
+	  1		  5
+	  6
+	  3
+	  9
+	  4
+	  8
+	
+	Paso 2. A partir de ahora, vamos a contar todo el rato; vamos a contar y calcular para cada número, uno por uno, antes de pushearlos. Vamos a calcular cuántas operaciones necesitaaríamos para pushearlo en la posición correcta al stack B. 
+	caso del 7 --> 7 será el número mayor en el stack B. Primero tenemos que rotar el stack B, para que 5 quede arriba (en el stack B tienen que quedar al revés que en el stack A, para que cuando los devolvamos se queden en el orden correcto). Así que pasar 7 al stack B requeriría de dos operaciones: rb y pb. Si no encontramos otro número que requiera menos de dos operaciones, pusheamos el 7.
+	sb
+	pb
+	
+	caso del 1 --> deberíamos swapear el stack B (para que nos quede el 5 arriba) y el stack A (para tener el 1 accesible) y luego pushearlo. Serían dos movimientos tb (rr y pb).
+	ss
+	pb
+	
+	caso del 6 --> tendría tres movimientos(? yo creo que más).
+	caso del 3 --> necesitaría cuatro operaciones.
+	
+	Así que el número más económico es el 7 --> sb pb
+	
+	stack A		stack B
+	  1		  7
+	  6		  5
+	  3		  2
+	  9
+	  4
+	  8
+
+	ahora pasamos el 1 al stack b con un solo movimiento --> pb
+	
+	stack A		stack B		  
+	  6		  1
+	  3		  7
+	  9		  5
+	  4		  2
+	  8
+
+	para pasar el 6 a su posición correcta, que sería delante del 5, deberíamos hacer dos rotaciones en B, para mandar el 1 y el 7 abajo, y puego pushear 6 al B.
+	--> rb rb pb
+	
+	stack A		stack B		  
+	  3		  6
+	  9		  5
+	  4		  2
+	  8		  1
+	  		  7
+	
+	ahora el 3 necesita que el stack B rote dos veces para dejar el 2 arriba + pb, tres operaciones.
+	el 9 necesita una reverse rotation del stack B, una rotación del a y un push (??).
+	el 4 necesita dos rotaciones del B y dos rotaciones del A y el push. Serían dos rotaciones simultáneas (rr) y pb, tres movimientos.
+	el 8 necesita una reverse rotation del B y otra del a y el push. rr, pb. Dos movimientos.
+	
+	stack A		stack B		  
+	  3		  8
+	  9		  7
+	  4		  6
+	  		  5
+	  		  2
+			  1
+	
+	Últimos 3 elementos: aquí paramos, ya no tenemos que hacer pb, porque podemos ordenar estos tres elementos con un único movimiento (menos en un par de casos, que son dos movimientos).
+			if (min == a->top->value)
+			{
+				rra(a);
+				sa(a);
+			}
+			else if (max == a->top->value)
+			{
+				ra(a);
+				if (check_order(a) == 0)
+					sa(a);
+			}
+			else
+			{
+				if (a->top->next->value == max)
+					rra(a);
+				else	sa(a);
+			}
+	
+	Hacemos sa y ra en el stack A.
+	
+	stack A		stack B		  
+	  3		  8
+	  4		  7
+	  9		  6
+	  		  5
+	  		  2
+			  1
+	
+	Y ahora devolvemos al stack A.
+	Pusheamos todo al stack A, pero solo si lo pusheamos a su posición correcta. Si no es así, rotamo el stack A hasta que toque.
+	Para pasar el 8 al stack A necesitamos que el 9 esté arriba, así que rra y pb.
+	
+	stack A		stack B		  
+	  8		  7
+	  9		  6
+	  3		  5
+	  4		  2
+			  1
+	
+	pa el número 7, pa el número 6, pa el número 5
+
+	stack A		stack B		  
+	  5
+	  6		  2
+	  7		  1
+	  8
+	  9
+	  3
+	  4
+	
+	ahora hay que rra dos veces para que 3 y 4 queden arriba y asi poder pasar 2 y 1 del stack B al A. rra rra pa pa
+	
+	stack A		stack B
+	  1
+	  2
+	  3
+	  4
+	  5
+	  6
+	  7
+	  8
+	  9
+	  
+	Ahora habría que poner el número mínimo arriba del stack. En nuestro casi, ha ocurrido solo.
+
+	Más explicaciones del turco --> https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
+	Hoja de corrección --> https://github.com/rizky/42-corrections/blob/master/push_swap.pdf
+	Otro repo con algoritmo turco --> https://github.com/aolabarr/Push_swap
+	Visualizer --> https://github.com/o-reo/push_swap_visualizer
+
+
+ORDENAR STACKS PEQUEÑOS:
+sort_small_stack.c
+
+#include "libpush_swap.h"
+
+//Functions to sort small stacks
+//Stacks with 2 elements
+void	sort_2nb(t_stack *a)
+{
+	t_node	*node;
+
+	node = a->top;
+	if (node->value > node->next->value)
+		sa(a);
+}
+
+//Stacks with 3 elements
+//Only get into sort_3nb if check_order(stack) == 0
+void	sort_3nb(t_stack *a)
+{
+	int	min;
+	int	max;
+	
+	min = get_min_value(a);
+	max = get_max_value(a);
+	if (min == a->top->value) //1 3 2
+	{
+		rra(a);
+		sa(a);
+	}
+	else if (max == a->top->value) //3 2 1 , 3 1 2
+	{
+		ra(a);
+		if (check_order(a) == 0)
+			sa(a);
+	}
+	else //2 3 1, 2 1 3
+	{
+		if (a->top->next->value == max)//2 3 1
+			rra(a);
+		else	//2 1 3
+			sa(a);
+	}
+}
+	-->APUNTE RESPECTO A ORDENAR STACKS DE 3 ELEMENTOS
+	Para ordenar de manera "circular" un stack de 3 elementos solo hay que hacer un sa si es que esta está desordenada. 
+	Manera "circular": se refiere a cuando el máximo está delante del mínimo y el resto de elementos mantienen el orden relativo. Por ejemplo: 1234 está ordenada normal, 2341 está ordenada de manera "circular"; también 3412, 4123...
+//Stacks with 4 elements
+void	sort_4nb(t_stack *a, t_stack *b)
+{
+	pb(a, b);
+	if (check_order(a) == 0)
+		sort_3nb(a);
+	if (b->top->value < a->top->value || b->top->value > last_node(a)->value)//si el primero de b es menor que el primero de a o mayor que el último de a
+		pa(a, b);
+	else if (b->top->value < a->top->next->value)//si el primero de b está entre el primero y el segundo de a
+	{
+		pa(a, b);//lo pusheamos a a
+		sa(a);//e intercambiamos los dos primeros valores
+	}
+	else if(b->top->value > a->top->next->value)//si el primero de b está entre el segundo y último de a
+	{
+		rra(a); //ponemos el último de a arriba del todo
+		pa(a, b); //pasamos el de b a a. Luego habría que rotar hasta que el min se quede arriba
+	}
+	while (check_order(a) == 0)
+		ra(a);
+}
+
+//Stack with 5 elements
+void	sort_5nb(t_stack *a, t_stack *b)
+{
+	pb(a, b);
+	pb(a, b);
+	if (check_order(a) == 0)
+		sort_3nb(a);
+	while(b->size > 0)
+	{
+		if (b->top->value < a->top->value || b->top->value > last_node(a)->value)//si el primero de b es menor que el primero de a o mayor que el último de a
+			pa(a, b);
+		else if (b->top->value < a->top->next->value)//si el primero de b está entre el primero y el segundo de a
+		{
+			pa(a, b);//lo pusheamos a a
+			sa(a);//e intercambiamos los dos primeros valores
+		}
+		else if(b->top->value > a->top->next->value)//si el primero de b está entre el segundo y último de a
+		{
+			rra(a); //ponemos el último de a arriba del todo
+			pa(a, b); //pasamos el de b a a. Luego habría que rotar hasta que el min se quede arriba
+		}
+		while (check_order(a) == 0)
+			ra(a);
+	}
+}
+
+
+
+
