@@ -4,6 +4,8 @@ Proyecto push_swap del cursus 42.
 ### Recursos
 Explicaciones del algoritmo turco &rarr; https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
 
+&rarr; https://medium.com/@ayogun/push-swap-c1f5d2d41e97
+
 Hoja de corrección &rarr; https://github.com/rizky/42-corrections/blob/master/push_swap.pdf
 
 Visualizer &rarr; https://github.com/o-reo/push_swap_visualizer
