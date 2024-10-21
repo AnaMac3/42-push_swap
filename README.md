@@ -1,14 +1,7 @@
 # **Push_swap**
 Proyecto push_swap del cursus 42.
 
-### Recursos
-Explicaciones del algoritmo turco &rarr; https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
 
-&rarr; https://medium.com/@ayogun/push-swap-c1f5d2d41e97
-
-Hoja de corrección &rarr; https://github.com/rizky/42-corrections/blob/master/push_swap.pdf
-
-Visualizer &rarr; https://github.com/o-reo/push_swap_visualizer
 
 ### Flujo
 
@@ -47,3 +40,11 @@ graph LR;
     T --> AB["***find_best_node_to_move***: cuando ya sabemos el total de movimientos que necesita cada nodo para moverse, seleccionamos aquel que necesite menos movimientos"];
     T --> AC["***do_calculated_moves***: se ejecutan los movimientos guardados en el nodo más económico."];
     T --> AD["***max_value_to_top***: si el stack B no está en orden de mayor a menor, se rota hasta poner el valor máximo arriba"];
+```
+
+### Recursos
+Explicaciones del algoritmo turco &rarr; [AQUÍ](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a) y [AQUÍ](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
+
+Hoja de corrección &rarr; [AQUÍ](https://github.com/rizky/42-corrections/blob/master/push_swap.pdf)
+
+Visualizer &rarr; [AQUÍ](https://github.com/o-reo/push_swap_visualizer)
