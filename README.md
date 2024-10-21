@@ -1,6 +1,11 @@
 # **Push_swap**
 Proyecto push_swap del cursus 42.
 
+El proyecto consiste en crear un programa que ordene de manera ascendente una lista de números enteros pasada como argumento. Se trabaja con dos stacks, la A y la B; la A es la que se recibe y la que tiene que devolverse ordenada.
+Las operaciones que se pueden utilizar son las siguientes:
+swap a (sa): intercambia los dos primeros elementos del stack a.
+swap b (sb): intercambia los dos primeros elementos del stack b.
+swap a y swap b (ss) a la vez.
 
 
 ### Flujo de push_swap
