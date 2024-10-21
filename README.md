@@ -36,7 +36,7 @@ graph LR;
     V --> X["***calculate_moves_in_a*** (calculate_moves.c): calcula la cantidad de ra o rra que necesita cada nodo de A para colocarse en el top del stack."];
     V --> Y["***calculate_pos_in_b*** (calculate_moves.c): calcula la posición en B en la que tiene que ir el nodo de A."]
     V --> Z["***calculate_moves_in_b*** (calculate_moves.c): calcula la cantidad de rb o rrb que necesita el nodo de B para colocarse en el top del stack."];
-    V -->AA["***res_moves_a_b***" (calculate_moves.c): resume los movimientos de ra y rb en rr; y rra y rrb en rrr."];
+    V -->AA["***res_moves_a_b*** (calculate_moves.c): resume los movimientos de ra y rb en rr; y rra y rrb en rrr."];
     T --> AB["***find_best_node_to_move*** (sort_long_stack.c): selecciona el nodo de A que menos movimientos necesita para colocarse en su posición correcta en B."];
     T --> AC["***do_calculated_moves*** (sort_long_stack.c): ejecuta los movimientos guardados en el nodo más económico."];
     T --> AD["***max_value_to_top*** (sort_long_stack.c): si el stack B no está en orden de mayor a menor, se rota hasta poner el valor máximo arriba"];
