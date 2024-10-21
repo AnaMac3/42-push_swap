@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:13:16 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/17 16:50:45 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:52:53 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ void	rrb(t_stack *b, int mode)
 		ft_printf("rrb\n");
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b, int mode)
 {
 	rra(a, 1);
 	rrb(b, 1);
-	ft_printf("rrr\n");
+	if (mode == 0)
+		ft_printf("rrr\n");
 }

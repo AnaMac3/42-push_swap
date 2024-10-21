@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 15:17:50 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/17 16:28:24 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:05:16 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ static t_node	*find_best_node_to_move(t_stack *a)
 static void	do_calculated_moves(t_node *best_node, t_stack *a, t_stack *b)
 {
 	while (best_node->rr_movs --)
-		rr(a, b);
+		rr(a, b, 0);
 	while (best_node->rrr_movs --)
-		rrr(a, b);
+		rrr(a, b, 0);
 	while (best_node->ra_movs --)
 		ra(a, 0);
 	while (best_node->rra_movs --)
@@ -99,8 +99,8 @@ void	sort_long_stack(t_stack *a, t_stack *b)
 {
 	t_node	*best_node;
 
-	pb(a, b);
-	pb(a, b);
+	pb(a, b, 0);
+	pb(a, b, 0);
 	while (a->size > 0)
 	{
 		assign_index(a);
@@ -108,11 +108,11 @@ void	sort_long_stack(t_stack *a, t_stack *b)
 		calculate_total_moves(a, b);
 		best_node = find_best_node_to_move(a);
 		do_calculated_moves(best_node, a, b);
-		pb(a, b);
+		pb(a, b, 0);
 	}
 	assign_index(b);
 	if (b->top->val != get_max_value(b))
 		max_value_to_top(b);
 	while (b->size > 0)
-		pa(a, b);
+		pa(a, b, 0);
 }

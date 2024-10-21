@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:15:51 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/17 16:46:54 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:07:08 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,21 @@ typedef struct s_stack
 //rules_swap.c
 void	sa(t_stack *a, int mode);
 void	sb(t_stack *b, int mode);
-void	ss(t_stack *a, t_stack *b);
+void	ss(t_stack *a, t_stack *b, int mode);
 
 //rules_push.c
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack *b, int mode);
+void	pb(t_stack *a, t_stack *b, int mode);
 
 //rules_rotate.c
 void	ra(t_stack *a, int mode);
 void	rb(t_stack *b, int mode);
-void	rr(t_stack *a, t_stack *b);
+void	rr(t_stack *a, t_stack *b, int mode);
 
 //rules_rev_rotate.c
 void	rra(t_stack *a, int mode);
 void	rrb(t_stack *b, int mode);
-void	rrr(t_stack *a, t_stack *b);
+void	rrr(t_stack *a, t_stack *b, int mode);
 
 //MANAGE STACKS
 //stack_manager.c

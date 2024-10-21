@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:40:00 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/17 16:31:12 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:25:10 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,18 +78,18 @@ int	check_mang_args(const char *argv, t_stack *stack)
 
 	if (check_valid_nbr(argv) != 0)
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	nb = ft_atol(argv);
 	if (nb > 2147483647 || nb < -2147483648)
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	if (is_duplicated(stack, nb) != 0)
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	push_bottom(stack, nb);

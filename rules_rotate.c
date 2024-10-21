@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:01:54 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/17 16:51:35 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:53:02 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //Rules rotate, ra, rb, rr:
 //mode == 0 --> final movement, print it and do it
-//mode == 1 --> calling from doble rotate (rr or rrr), not print it
+//mode == 1 --> calling from doble rotate (rr or rrr) or checker, not print it
 //First element to last position
 void	ra(t_stack *a, int mode)
 {
@@ -52,9 +52,10 @@ void	rb(t_stack *b, int mode)
 		ft_printf("rb\n");
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b, int mode)
 {
 	ra(a, 1);
 	rb(b, 1);
-	ft_printf("rr\n");
+	if (mode == 0)
+		ft_printf("rr\n");
 }

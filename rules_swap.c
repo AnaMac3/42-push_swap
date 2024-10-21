@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:05:17 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/17 16:52:41 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:53:11 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //Rules swap sa, sb y ss:
 //mode == 0 --> final movement, print it and do it
-//mode == 1 --> calling from doble rotate (ss), not print it
+//mode == 1 --> calling from doble rotate (ss) or checker, not print it
 //swap first two elements of a
 void	sa(t_stack *a, int mode)
 {
@@ -49,9 +49,10 @@ void	sb(t_stack *b, int mode)
 		ft_printf("sb\n");
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, int mode)
 {
 	sa(a, 1);
 	sb(b, 1);
-	ft_printf("ss\n");
+	if (mode == 0)
+		ft_printf("ss\n");
 }

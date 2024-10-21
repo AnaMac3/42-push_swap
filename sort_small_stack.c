@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 10:46:00 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/17 17:32:42 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:07:24 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,25 +57,25 @@ void	sort_3nb(t_stack *a)
 //Stacks with 4 elements
 void	sort_4nb(t_stack *a, t_stack *b)
 {
-	pb(a, b);
+	pb(a, b, 0);
 	if (check_order(a) == 0)
 		sort_3nb(a);
 	if (b->top->val < a->top->val)
-		pa(a, b);
+		pa(a, b, 0);
 	else if (b->top->val > last_node(a)->val)
 	{
-		pa(a, b);
+		pa(a, b, 0);
 		ra(a, 0);
 	}
 	else if (b->top->val < a->top->next->val)
 	{
-		pa(a, b);
+		pa(a, b, 0);
 		sa(a, 0);
 	}
 	else if (b->top->val > a->top->next->val)
 	{
 		rra(a, 0);
-		pa(a, b);
+		pa(a, b, 0);
 		ra(a, 0);
 		ra(a, 0);
 	}
@@ -84,11 +84,11 @@ void	sort_4nb(t_stack *a, t_stack *b)
 //Stack with 5 elements
 void	sort_5nb(t_stack *a, t_stack *b)
 {
-	pb(a, b);
+	pb(a, b, 0);
 	sort_4nb(a, b);
 	if (b->top->val < a->top->next->val || b->top->val > last_node(a)->val)
 	{
-		pa(a, b);
+		pa(a, b, 0);
 		if (a->top->val > last_node(a)->val)
 			ra(a, 0);
 		else if (a->top->val > a->top->next->val)
@@ -97,14 +97,14 @@ void	sort_5nb(t_stack *a, t_stack *b)
 	else if (b->top->val < a->top->next->next->val)
 	{
 		ra(a, 0);
-		pa(a, b);
+		pa(a, b, 0);
 		sa(a, 0);
 		rra(a, 0);
 	}
 	else if (b->top->val < last_node(a)->val)
 	{
 		rra(a, 0);
-		pa(a, b);
+		pa(a, b, 0);
 		ra(a, 0);
 		ra(a, 0);
 	}
