@@ -6,11 +6,11 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:46:38 by amacarul          #+#    #+#             */
-/*   Updated: 2024/09/27 10:45:22 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:30:14 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 void	ft_pfstr(char *s, size_t *count)
 {

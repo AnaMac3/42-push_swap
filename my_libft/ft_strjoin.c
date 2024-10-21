@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 13:45:39 by amacarul          #+#    #+#             */
-/*   Updated: 2024/09/21 18:14:24 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:12:47 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,28 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*joined;
-	char	*start_joined;
 	size_t	total_len;
+	size_t	i;
+	size_t	j;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL && s2 == NULL)
 		return (NULL);
 	total_len = ft_strlen(s1) + ft_strlen(s2);
-	joined = (char *) malloc (total_len + 1);
+	joined = (char *)malloc (total_len + 1);
 	if (joined == NULL)
 		return (NULL);
-	start_joined = joined;
-	while (*s1)
+	i = 0;
+	while (s1 != NULL && s1[i])
 	{
-		*joined = *s1;
-		s1 ++;
-		joined ++;
+		joined[i] = s1[i];
+		i ++;
 	}
-	while (*s2)
+	j = 0;
+	while (s2 != NULL && s2[j])
 	{
-		*joined = *s2;
-		s2 ++;
-		joined ++;
+		joined[i + j] = s2[j];
+		j ++;
 	}
-	*joined = '\0';
-	return (start_joined);
+	joined[i + j] = '\0';
+	return (joined);
 }

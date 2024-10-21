@@ -6,11 +6,11 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:19:39 by amacarul          #+#    #+#             */
-/*   Updated: 2024/09/26 18:24:17 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:30:06 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 void	ft_pfhex(unsigned int n, int mode, size_t *count)
 {

@@ -6,11 +6,11 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:11:21 by amacarul          #+#    #+#             */
-/*   Updated: 2024/09/26 18:23:46 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:30:45 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 void	select_format(va_list arg, char *str, size_t *count)
 {

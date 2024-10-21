@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:20:56 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/16 11:32:34 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/21 11:28:38 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <unistd.h>
+# include <stdarg.h>
+# include <fcntl.h>
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
@@ -33,6 +35,7 @@ int			ft_toupper(int c);
 int			ft_tolower(int c);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
+int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -77,5 +80,12 @@ void		ft_pfnbr(int n, size_t *count);
 void		ft_pfunsgn(unsigned int n, size_t *count);
 void		ft_pfhex(unsigned int n, int mode, size_t *count);
 void		ft_pfptrhex(void *p, size_t *count);
+
+//get_next_line
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
+
+char		*get_next_line(int fd);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:44:08 by amacarul          #+#    #+#             */
-/*   Updated: 2024/09/21 18:14:32 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:13:55 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ size_t	ft_strlen(const char *s)
 	count = 0;
 	while (s[count])
 		count ++;
-	return (count * sizeof(char));
+	return (count);
 }

@@ -6,11 +6,11 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:23:55 by amacarul          #+#    #+#             */
-/*   Updated: 2024/09/26 18:24:02 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:30:17 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 void	ft_pfunsgn(unsigned int n, size_t *count)
 {

@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 15:30:44 by amacarul          #+#    #+#             */
-/*   Updated: 2024/09/21 18:14:16 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:12:12 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*result;
 
-	if (s == NULL)
-		return (NULL);
 	result = (char *) s;
 	while (*result)
 	{

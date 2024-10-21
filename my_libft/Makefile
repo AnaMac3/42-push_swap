@@ -17,6 +17,7 @@ SRC_FILES= ft_isalpha.c \
 	   ft_tolower.c \
 	   ft_strchr.c \
 	   ft_strrchr.c \
+	   ft_strcmp.c \
 	   ft_strncmp.c \
 	   ft_memchr.c \
 	   ft_memcmp.c \
@@ -52,6 +53,7 @@ SRC_FILES= ft_isalpha.c \
 	   ft_pfunsgn.c \
 	   ft_pfhex.c \
 	   ft_pfptrhex.c \
+	   get_next_line.c 
 	   
 OBJ_FILES= $(SRC_FILES:.c=.o)
 

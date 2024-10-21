@@ -6,11 +6,11 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:57:35 by amacarul          #+#    #+#             */
-/*   Updated: 2024/09/27 10:33:55 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:30:09 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 static void	is_positive(int n, size_t *count)
 {
