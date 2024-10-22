@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:40:00 by amacarul          #+#    #+#             */
-/*   Updated: 2024/10/21 12:25:10 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:55:06 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int	full_stack_a(int argc, char **argv, t_stack *a)
 	int		i;
 
 	new_argv = NULL;
+	i = 1;
 	if (argc == 2)
 	{
 		new_argv = replace_and_split(argv[1]);
@@ -110,13 +111,14 @@ int	full_stack_a(int argc, char **argv, t_stack *a)
 		argv = new_argv;
 		i = 0;
 	}
-	else
-		i = 1;
 	while (argv[i] != NULL)
 	{
-		if (check_mang_args(argv[i], a) != 0)
+		if (check_mang_args(argv[i ++], a) != 0)
+		{
+			if (new_argv)
+				free_split_result(new_argv);
 			return (1);
-		i ++;
+		}
 	}
 	if (new_argv)
 		free_split_result(new_argv);
