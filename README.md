@@ -1,6 +1,8 @@
 # **Push_swap**
 Proyecto push_swap del cursus 42.
 
+### ¿De qué va el proyecto?
+
 El proyecto consiste en crear un programa que ordene de manera ascendente una lista de números enteros pasada como argumento. Se trabaja con dos stacks, el A y el B: el A es el que se recibe y el que se devuelve ordenado, el B funciona como auxiliar.
 
 Las operaciones que se pueden utilizar son las siguientes:
@@ -17,7 +19,26 @@ Las operaciones que se pueden utilizar son las siguientes:
 - rrb (reverse rotate b): Desplaza hacia abajo todos los elementos del stack B una posicion; el último elemento se convierte en el primero.
 - rrr (rra y rrb a la vez)
 
+El programa debe mostrar la lista de operaciones más corta posible para ordenar el stack A, de menor a mayor, situándose el elemento menor en la cima del stack.
 
+El programa mostrará error en caso de recibir argumentos que sean enteros, argumentos superiores a un número entero, ni duplicados.
+
+### Algoritmo de ordenamiento
+
+Explicar cómo ordenar para listas cortas:
+2 elementos se ordenan en un movimiento
+3 elementos como máximo en dos movs
+...
+
+> 5 elementos --> mi estrategia:
+1. Calcular cuántos movimientos necesita cada elemento del stack A para situarse en la cima. Serán ra o rra, dependiendo si el elemento en cuestión se encuentra en la mitad superior o inferior de la pila.
+2. Calcular la posición en la que cada elemento de A tendría que ubicarse al moverlo a B. teniendo en cuenta que en B queremos ordenarlos de mayor a menor, para que cuando los volquemos de nuevo en A, queden ordenados de menor a mayor.
+3. Calcular los movimientos que se necesitarían en B para llevar el nodo sobre el cuál eitne que ir el elemento de A a la cima de la pila.
+4. Resumir los movimientos: ra y rb se convierten en rr...
+5. Encontrar cuál es el elemento de A más económico, que menos movimientos necesita para moverse a B.
+6. Ejecutar los movimientos para ese elemento.
+7. Repetir hasta vaciar A.
+8. Y luego volcar todos los elementos a A.
 
 ### Flujo de push_swap
 
@@ -59,7 +80,7 @@ graph LR;
 ```
 
 ### Recursos
-Explicaciones del algoritmo turco &rarr; [AQUÍ](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a) y [AQUÍ](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
+Explicaciones del algoritmo &rarr; [AQUÍ](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a) y [AQUÍ](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
 
 Hoja de corrección &rarr; [AQUÍ](https://github.com/rizky/42-corrections/blob/master/push_swap.pdf)
 
