@@ -1,7 +1,7 @@
 # **Push_swap**
 Proyecto push_swap del cursus 42.
 
-El proyecto consiste en crear un programa que ordene de manera ascendente una lista de números enteros pasada como argumento. Se trabaja con dos stacks, el A y el B; el A es la que se recibe y la que tiene que devolverse ordenado, el B funciona como auxiliar.
+El proyecto consiste en crear un programa que ordene de manera ascendente una lista de números enteros pasada como argumento. Se trabaja con dos stacks, el A y el B: el A es el que se recibe y el que se devuelve ordenado, el B funciona como auxiliar.
 
 Las operaciones que se pueden utilizar son las siguientes:
 
@@ -16,6 +16,7 @@ Las operaciones que se pueden utilizar son las siguientes:
 - rra (reverse rotate a): Desplaza hacia abajo todos los elementos del stack A una posicion; el último elemento se convierte en el primero.
 - rrb (reverse rotate b): Desplaza hacia abajo todos los elementos del stack B una posicion; el último elemento se convierte en el primero.
 - rrr (rra y rrb a la vez)
+
 
 
 ### Flujo de push_swap
