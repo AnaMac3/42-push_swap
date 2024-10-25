@@ -21,16 +21,30 @@ Las operaciones que se pueden utilizar son las siguientes:
 
 El programa debe mostrar la lista de operaciones más corta posible para ordenar el stack A, de menor a mayor, situándose el elemento menor en la cima del stack.
 
-El programa mostrará error en caso de recibir argumentos que sean enteros, argumentos superiores a un número entero, ni duplicados.
+El programa mostrará error en caso de recibir argumentos que no sean enteros, argumentos superiores a un número entero o números duplicados.
 
 ### Algoritmo de ordenamiento
 
-Explicar cómo ordenar para listas cortas:
-2 elementos se ordenan en un movimiento
-3 elementos como máximo en dos movs
-...
+***Ordenar listas cortas***
 
-> 5 elementos --> mi estrategia:
+*Listas de 2 elementos:*
+
+Para ordenar de menor a mayor una lista de dos elementos basta con un solo movimiento.
+
+*Listas de 3 elementos:*
+
+El máximo de movimientos para ordenar una lista de tres elementos son dos. 
+
+Si la lista mantiene un orden circular o cíclico, pero no lineal (como en el caso de 2-3-1 o 3-1-2) basta con un solo movimiento para ordenarla en modo lineal. 
+
+<div align="center">
+<img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1038.png" alt="Listas de 3 elementos en orden circular" width="300" />
+</div>
+Si la lista no mantiene ni siquiera un orden circular, necesita dos movimientos para quedar ordenada.
+
+
+
+5 elementos --> mi estrategia:
 1. Calcular cuántos movimientos necesita cada elemento del stack A para situarse en la cima. Serán ra o rra, dependiendo si el elemento en cuestión se encuentra en la mitad superior o inferior de la pila.
 2. Calcular la posición en la que cada elemento de A tendría que ubicarse al moverlo a B. teniendo en cuenta que en B queremos ordenarlos de mayor a menor, para que cuando los volquemos de nuevo en A, queden ordenados de menor a mayor.
 3. Calcular los movimientos que se necesitarían en B para llevar el nodo sobre el cuál eitne que ir el elemento de A a la cima de la pila.
