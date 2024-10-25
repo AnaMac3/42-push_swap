@@ -53,10 +53,16 @@ Si la lista no mantiene un orden circular (como en el caso de 1 - 3 - 2, 2 - 1 -
 Para ordenar las listas de 4 elementos, pasamos el primer elemento al stack B, ordenamos los tres elementos que quedan en el stack A utilizando la función para listas de 3 elementos, y devolvemos el elemento del stack B a su posición correcta en el stack A.
 
 El máximo de movimientos necesarios para ordenar una lista de 4 elementos son siete.
+<div align="center">
+<img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1041.png" alt="Listas de 4 elementos" width="500" />
+</div>
 
+*LISTAS DE 5 ELEMENTOS:*
 
+Para ordenar las listas de 5 elementos, pasamos el primer elemento al stack B, ordenamos los elementos restantes llamando a la función que ordena 4 elementos. Esto nos permitirá ordenar la lista en no más de 12 movimientos, que es lo que se pide en la hoja de corrección.
 
-5 elementos --> mi estrategia:
+***Ordenar listas largas, de más de 5 elementos***
+
 1. Calcular cuántos movimientos necesita cada elemento del stack A para situarse en la cima. Serán ra o rra, dependiendo si el elemento en cuestión se encuentra en la mitad superior o inferior de la pila.
 2. Calcular la posición en la que cada elemento de A tendría que ubicarse al moverlo a B. teniendo en cuenta que en B queremos ordenarlos de mayor a menor, para que cuando los volquemos de nuevo en A, queden ordenados de menor a mayor.
 3. Calcular los movimientos que se necesitarían en B para llevar el nodo sobre el cuál eitne que ir el elemento de A a la cima de la pila.
