@@ -59,18 +59,36 @@ El máximo de movimientos necesarios para ordenar una lista de 4 elementos son s
 
 *LISTAS DE 5 ELEMENTOS:*
 
-Para ordenar las listas de 5 elementos, pasamos el primer elemento al stack B, ordenamos los elementos restantes llamando a la función que ordena 4 elementos. Esto nos permitirá ordenar la lista en no más de 12 movimientos, que es lo que se pide en la hoja de corrección.
+Para ordenar las listas de 5 elementos, pasamos el primer elemento al stack B, ordenamos los elementos restantes llamando a la función que ordena 4 elementos. Luego devolvemos el elemento del stack B que queda a su posición correcta en A. Esto nos permitirá ordenar la lista en no más de 12 movimientos, que es lo que se pide en la hoja de corrección.
 
-***Ordenar listas largas, de más de 5 elementos***
+***Ordenar listas largas***
 
-1. Calcular cuántos movimientos necesita cada elemento del stack A para situarse en la cima. Serán ra o rra, dependiendo si el elemento en cuestión se encuentra en la mitad superior o inferior de la pila.
-2. Calcular la posición en la que cada elemento de A tendría que ubicarse al moverlo a B. teniendo en cuenta que en B queremos ordenarlos de mayor a menor, para que cuando los volquemos de nuevo en A, queden ordenados de menor a mayor.
-3. Calcular los movimientos que se necesitarían en B para llevar el nodo sobre el cuál eitne que ir el elemento de A a la cima de la pila.
-4. Resumir los movimientos: ra y rb se convierten en rr...
-5. Encontrar cuál es el elemento de A más económico, que menos movimientos necesita para moverse a B.
-6. Ejecutar los movimientos para ese elemento.
-7. Repetir hasta vaciar A.
-8. Y luego volcar todos los elementos a A.
+*LISTAS DE MÁS DE 5 ELEMENTOS:*
+
+Pasos: 
+
+1. Calcular la cantidad de movimientos que necesita cada elemento del stack A para situarse en la cima de su stack. Serán movimientos ra o rra, dependiendo de si el elemento en cuestión se encuentra en la mitad superior o inferior de la pila.
+
+   Por ejemplo, el número 3, como es el primer elemento de la lista, no necesita ningún movimiento (ejemplo 1).
+
+   El número 7, siendo el segundo elemento de la lista, necesita un movimiento (ra) para ubicarse en la cima de la stack (ejemplo 2).
+
+   El número 1 necesitaría dos movimientos (ra, ra) (ejemplo 3).
+
+   El número 0, que se encuentra al final de la lista, necesita un solo movimiento para colocarse en la cima (rra) (ejemplo 4).
+
+<div align="center">
+<img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1042.png" alt="Listas de 4 elementos" width="1000" />
+</div>
+
+
+3. Calcular la posición en la que cada elemento de A tendría que ubicarse al moverlo a B, teniendo en cuenta que en B queremos ordenarlos de mayor a menor, para que cuando los volquemos de nuevo en A, queden ordenados de menor a mayor.
+4. Calcular los movimientos que se necesitarían en el stack B para llevar el nodo sobre el que tiene que ir el elemento de A a la cima de la pila.
+5. Resumir los movimientos: ra y rb se convierten en rr y rra y rrb se convierten en rrr.
+6. Encontrar cuál es el elemento de A más económico, que menos movimientos necesita para moverse a B.
+7. Ejecutar los movimientos para ese elemento.
+8. Repetir hasta vaciar A.
+9. Y luego volcar todos los elementos a A.
 
 ### Flujo de push_swap
 
