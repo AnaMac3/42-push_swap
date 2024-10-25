@@ -41,7 +41,9 @@ Si la lista mantiene un orden circular o cíclico, pero no lineal (como en el ca
 <img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1038.png" alt="Listas de 3 elementos en orden circular" width="300" />
 </div>
 Si la lista no mantiene ni siquiera un orden circular, necesita dos movimientos para quedar ordenada.
-
+<div align="center">
+<img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1039.png" alt="Listas de 3 elementos en orden circular" width="500" />
+</div>
 
 
 5 elementos --> mi estrategia:
