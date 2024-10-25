@@ -27,23 +27,33 @@ El programa mostrará error en caso de recibir argumentos que no sean enteros, a
 
 ***Ordenar listas cortas***
 
-*Listas de 2 elementos:*
+*LISTAS DE 2 ELEMENTOS:*
 
 Para ordenar de menor a mayor una lista de dos elementos basta con un solo movimiento.
 
-*Listas de 3 elementos:*
+*LISTAS DE 3 ELEMENTOS:*
 
 El máximo de movimientos para ordenar una lista de tres elementos son dos. 
 
-Si la lista mantiene un orden circular o cíclico, pero no lineal (como en el caso de 2-3-1 o 3-1-2) basta con un solo movimiento para ordenarla en modo lineal. 
+Si la lista mantiene un orden circular o cíclico, pero no lineal (como en el caso de 2 - 3 - 1 y 3 - 1 - 2), basta con un solo movimiento para ordenarla en modo lineal. 
 
 <div align="center">
 <img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1038.png" alt="Listas de 3 elementos en orden circular" width="300" />
 </div>
-Si la lista no mantiene ni siquiera un orden circular, necesita dos movimientos para quedar ordenada.
+Si la lista no mantiene un orden circular (como en el caso de 1 - 3 - 2, 2 - 1 - 3 y 3 - 2 - 1), necesita máximo dos movimientos para quedar ordenada.
 <div align="center">
-<img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1039.png" alt="Listas de 3 elementos en orden circular" width="500" />
+<img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1039.png" alt="Listas de 3 elementos en desorden" width="500" />
 </div>
+<div align="center">
+<img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1040.png" alt="Listas de 3 elementos en desorden" width="500" />
+</div>
+
+*LISTAS DE 4 ELEMENTOS:*
+
+Para ordenar las listas de 4 elementos, pasamos el primer elemento al stack B, ordenamos los tres elementos que quedan en el stack A utilizando la función para listas de 3 elementos, y devolvemos el elemento del stack B a su posición correcta en el stack A.
+
+El máximo de movimientos necesarios para ordenar una lista de 4 elementos son siete.
+
 
 
 5 elementos --> mi estrategia:
