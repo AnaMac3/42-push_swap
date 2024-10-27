@@ -78,17 +78,22 @@ Pasos:
    El número 0, que se encuentra al final de la lista, necesita un solo movimiento para colocarse en la cima (rra) (ejemplo 4).
 
 <div align="center">
-<img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1042.png" alt="Listas de 4 elementos" width="1000" />
+<img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1042.png" alt="Listas de 4 elementos: movimientos en stack A" width="1000" />
 </div>
 
 
 3. Calcular la posición en la que cada elemento de A tendría que ubicarse al moverlo a B, teniendo en cuenta que en B queremos ordenarlos de mayor a menor, para que cuando los volquemos de nuevo en A, queden ordenados de menor a mayor.
-4. Calcular los movimientos que se necesitarían en el stack B para llevar el nodo sobre el que tiene que ir el elemento de A a la cima de la pila.
-5. Resumir los movimientos: ra y rb se convierten en rr y rra y rrb se convierten en rrr.
-6. Encontrar cuál es el elemento de A más económico, que menos movimientos necesita para moverse a B.
-7. Ejecutar los movimientos para ese elemento.
-8. Repetir hasta vaciar A.
-9. Y luego volcar todos los elementos a A.
+
+<div align="center">
+<img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1043.png" alt="Listas de 4 elementos: encontrar posición en B" width="1000" />
+</div>
+
+5. Calcular los movimientos que se necesitarían en el stack B para llevar el nodo sobre el que tiene que ir el elemento de A a la cima de la pila.
+6. Resumir los movimientos: ra y rb se convierten en rr y rra y rrb se convierten en rrr.
+7. Encontrar cuál es el elemento de A más económico, que menos movimientos necesita para moverse a B.
+8. Ejecutar los movimientos para ese elemento.
+9. Repetir hasta vaciar A.
+10. Y luego volcar todos los elementos a A.
 
 ### Flujo de push_swap
 
