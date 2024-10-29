@@ -1,9 +1,9 @@
 # **Push_swap**
 Proyecto push_swap del cursus 42.
 
-### ¿De qué va el proyecto?
+### Introducción
 
-El proyecto consiste en crear un programa que ordene de manera ascendente una lista de números enteros pasada como argumento. Se trabaja con dos stacks, el A y el B: el A es el que se recibe y el que se devuelve ordenado, el B funciona como auxiliar.
+El objetivo del proyecto es crear un programa que ordene de manera ascendente una lista de números enteros pasada como argumento. Se trabaja con dos stacks, el A y el B: el A es el que se recibe y el que se devuelve ordenado, el B funciona como auxiliar.
 
 Las operaciones que se pueden utilizar son las siguientes:
 
@@ -69,55 +69,32 @@ Pasos:
 
 1. Calcular la cantidad de movimientos que necesita cada elemento del stack A para situarse en la cima de su stack. Serán movimientos ra o rra, dependiendo de si el elemento en cuestión se encuentra en la mitad superior o inferior de la pila.
 
-   Ejemplo 1: el número 3, como es el primer elemento de la lista, no necesita ningún movimiento.
-
-   Ejemplo 2: el número 7, siendo el segundo elemento de la lista, necesita un movimiento (ra) para ubicarse en la cima de la stack.
-
-   Ejemplo 3: el número 1 necesitaría dos movimientos (ra, ra).
-
-   Ejemplo 4: el número 0, que se encuentra al final de la lista, necesita un solo movimiento para colocarse en la cima (rra).
-
 <div align="center">
 <img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1042.png" alt="Listas de 4 elementos: movimientos en stack A" width="1000" />
 </div>
 
 
-3. Calcular la posición en la que cada elemento de A tendría que ubicarse al moverlo a B, teniendo en cuenta que en B queremos ordenarlos de mayor a menor, para que cuando los volquemos de nuevo en A, queden ordenados de menor a mayor.
+2. Calcular la posición en la que cada elemento de A tendría que ubicarse al moverlo a B, teniendo en cuenta que en B queremos ordenarlos de mayor a menor, para que cuando los volquemos de nuevo en A queden ordenados de menor a mayor.
 
 
-5. Calcular los movimientos que se necesitarían en el stack B para llevar el nodo sobre el que tiene que ir el elemento de A a la cima de la pila.
+3. Calcular los movimientos que se necesitarían en el stack B para llevar el nodo sobre el que tiene que ir el elemento de A a la cima de la pila.
 
-   Ejemplo 1: en el stack B, el número 3 tendría que ubicarse después del número 4, que por ahora es el valor mínimo de ese stack. Por lo tanto, teniendo en cuenta el orden circular y no solo el lineal, no haría falta hacer ningún movimiento en el stack B para que el número 3 se colocase en su posición correcta al hacer pb, porque quedaría antes del 8 y después del 4.
-
-   Ejemplo 2: el número 7 tiene que colocarse encima del 6 y debajo del 8. Para poder hacer pb con este número, tendríamos primero que hacer un rb para llevar el número 8 al final del stack y dejar el 6 en la cima.
-
-   Ejemplo 3: el número 1 también se podría pasar directamente con un pb, sin hacer más movimientos en el stack B, porque también sería el nuevo valor mínimo del stack B.
-
-   Ejemplo 4: y el número 0, lo mismo, tan solo necesitaría un pb.
 
 <div align="center">
 <img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1043.png" alt="Listas de 4 elementos: calcular movimientos en B" width="1000" />
 </div>
 
-7. Resumir los movimientos: ra y rb se convierten en rr y rra y rrb se convierten en rrr.
+4. Resumir los movimientos: ra y rb se convierten en rr y rra y rrb se convierten en rrr.
 
-9. Encontrar cuál es el elemento de A más económico, que menos movimientos necesita para moverse a B.
-
-   Ejemplo 1: solo necesitaba un movimiento: pb.
-
-   Ejemplo 2: necesitaba tres movimientos: ra, rb y pb. Pero ra y rb se pueden resumir en rr. Así que en total, nos queda en dos movimientos.
-
-   Ejemplo 3: necesita tres movimientos: ra, ra y pb.
-
-   Ejemplo 4: necesita dos movimientos: rra y pb.
+5. Encontrar cuál es el elemento de A más económico, que menos movimientos necesita para moverse a B.
 
 <div align="center">
 <img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1044.png" alt="Listas de 4 elementos: resumir movimientos" width="500" />
 </div>
 
-11. Ejecutar los movimientos para ese elemento.
-12. Repetir hasta vaciar A.
-13. Y luego volcar todos los elementos a A.
+6. Ejecutar los movimientos para ese elemento.
+7. Repetir hasta vaciar A.
+8. Y luego volcar todos los elementos a A.
 
 ### Flujo de push_swap
 
