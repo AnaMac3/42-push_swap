@@ -63,6 +63,8 @@ Para ordenar las listas de 5 elementos, pasamos el primer elemento al stack B, o
 
 ***Ordenar listas largas***
 
+PONER ENLACE AL TURCO O EXPLICACIÓN DEL ALGORITMO MÁS GENÉRICA
+
 *LISTAS DE MÁS DE 5 ELEMENTOS:*
 
 Pasos: 
