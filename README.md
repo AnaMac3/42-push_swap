@@ -93,8 +93,9 @@ Pasos:
 </div>
 
 6. Ejecutar los movimientos para ese elemento.
-7. Repetir hasta vaciar A.
-8. Y luego volcar todos los elementos a A.
+7. Repetir el proceso de cálculo de movimientos y selección del elemento más económico hasta vaciar A.
+8. Una vez todos los elementos están en B, rotar el stack hasta que el elemento con el valor máximo esté en la cima.
+9. Volcar todos los elementos de vuelta al stack A.
 
 ### Flujo de push_swap
 
@@ -134,6 +135,11 @@ graph LR;
     T --> AC["***do_calculated_moves*** (sort_long_stack.c): ejecuta los movimientos guardados en el nodo más económico."];
     T --> AD["***max_value_to_top*** (sort_long_stack.c): si el stack B no está en orden de mayor a menor, se rota hasta poner el valor máximo arriba"];
 ```
+
+### Bonus
+
+El bonus de este proyecto consiste en hacer un checker que compruebe si la lista de instrucciones generada por el programa push_swap ordena el stack de forma correcta.
+
 
 ### Recursos
 Explicaciones del algoritmo &rarr; [AQUÍ](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a) y [AQUÍ](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
