@@ -63,32 +63,30 @@ Para ordenar las listas de 5 elementos, pasamos el primer elemento al stack B, o
 
 ***Ordenar listas largas***
 
-PONER ENLACE AL TURCO O EXPLICACIÓN DEL ALGORITMO MÁS GENÉRICA
-
 *LISTAS DE MÁS DE 5 ELEMENTOS:*
 
 Pasos: 
 
-1. Calcular la cantidad de movimientos que necesita cada elemento del stack A para situarse en la cima de su stack. Serán movimientos ra o rra, dependiendo de si el elemento en cuestión se encuentra en la mitad superior o inferior de la pila.
+1. Calcular la cantidad de movimientos que necesita cada elemento del stack A para situarse en la cima de la pila. Serán movimientos ra o rra, dependiendo de si el elemento se encuentra en la mitad superior o inferior de la pila.
 
 <div align="center">
 <img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1042.png" alt="Listas de 4 elementos: movimientos en stack A" width="1000" />
 </div>
 
 
-2. Calcular la posición en la que cada elemento de A tendría que ubicarse al moverlo a B, teniendo en cuenta que en B queremos ordenarlos de mayor a menor, para que cuando los volquemos de nuevo en A queden ordenados de menor a mayor.
+2. Calcular la posición en la que cada elemento de A tendría que ubicarse al moverlo a B, teniendo en cuenta que en B ordenamos los elementos de mayor a menor, para que cuando los volquemos de nuevo en A queden ordenados de menor a mayor.
 
 
-3. Calcular los movimientos que se necesitarían en el stack B para llevar el nodo sobre el que tiene que ir el elemento de A a la cima de la pila.
+3. Calcular los movimientos que se necesitarían realizar en el stack B para llevar a la cima el elemento sobre el que tiene que ir el elemento que movemos del stack A.
 
 
 <div align="center">
 <img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1043.png" alt="Listas de 4 elementos: calcular movimientos en B" width="1000" />
 </div>
 
-4. Resumir los movimientos: ra y rb se convierten en rr y rra y rrb se convierten en rrr.
+4. Resumir los movimientos: los movimientos ra y rb se pueden realizar de manera simultánea con rr; y los rra y rrb, con rrr.
 
-5. Encontrar cuál es el elemento de A más económico, que menos movimientos necesita para moverse a B.
+5. Encontrar el elemento más económico del stack A, el que menos movimientos necesita (tanto en A como en B) para moverse a B.
 
 <div align="center">
 <img src="https://github.com/AnaMac3/42-push_swap/blob/main/images/Untitled-2024-10-25-1044.png" alt="Listas de 4 elementos: resumir movimientos" width="500" />
