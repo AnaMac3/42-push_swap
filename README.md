@@ -1,6 +1,14 @@
 # **Push_swap**
 Proyecto push_swap del cursus 42.
 
+## Índice
+
+- [Introducción](#introducción)
+- [Algortimo de ordenamiento](#algortimo-de-ordenamiento)
+- [Flujo de push swap](#flujo-de-push-swap)
+- [Bonus](#bonus)
+- [Recursos](#recursos)
+
 ### Introducción
 
 El objetivo del proyecto es crear un programa que ordene de manera ascendente una lista de números enteros pasada como argumento. Se trabaja con dos stacks, el A y el B: el A es el que se recibe y el que se devuelve ordenado, el B funciona como auxiliar.
