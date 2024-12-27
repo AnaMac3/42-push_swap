@@ -109,7 +109,7 @@ Pasos:
 
 ```mermaid
 graph LR;
-    A["***main.c***"] --> B["Primero comprueba la cantidad de argumentos."];
+    A["***main.c***"] --> B["Comprueba la cantidad de argumentos."];
     A --> C["Inicializa las stacks con ***init_stack*** (stack_manager.c) y las libera si son NULL con ***free_stacks*** (stack_manager.c)."];
     A --> D["***full_stack_a*** (args_manager.c): introduce los números pasados como argumentos en la stack A."];
     D --> E["***replace_and_split*** (args_manager.c): si hay un único argumento, reemplaza los diferentes tipos de espacio por espacios normales con ***ft_isspace*** (my_libft/ft_isspace.c)y hace split con ***ft_split***(my_libft/ft_slit.c)."];
